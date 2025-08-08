@@ -32,7 +32,7 @@ The system is designed for research workflows, producing evaluation CSVs ready f
 git clone https://github.com/Huzzzaif/INC_GYM_RL.git
 cd INC_GYM_RL
 ```
-### Clone the repository
+### Create a virtual env
 ```bash
 python3 -m venv incvenv
 source incvenv/bin/activate  # Mac/Linux
