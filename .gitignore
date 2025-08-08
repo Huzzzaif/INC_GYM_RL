@@ -1,0 +1,19 @@
+# Virtual env
+incvenv/
+
+# Logs and runs
+logs/
+runs/
+
+# Model weights/checkpoints
+models/
+*.zip
+
+# Large result files
+*.csv
+*.xlsx
+*.json
+
+# Python cache
+__pycache__/
+*.pyc

@@ -1,0 +1,54 @@
+import networkx as nx
+import json
+import os
+import random
+
+# Output directory
+output_dir = os.path.join(os.path.dirname(__file__), "rgg_locked")
+os.makedirs(output_dir, exist_ok=True)
+
+# Function to find the cloud node (closest to 100,100)
+def select_cloud_node(positions):
+    return min(
+        positions.keys(),
+        key=lambda n: ((100 - positions[n][0])**2 + (100 - positions[n][1])**2)
+    )
+
+# Generate topologies
+for N in range(20, 121, 10):
+    for i in range(10):
+        seed = N * 100 + i
+        while True:
+            random.seed(seed)
+            G = nx.random_geometric_graph(N, radius=25/100, seed=seed)
+            if not nx.is_connected(G):
+                seed += 1
+                continue
+            break
+
+        # Use float positions and convert keys to strings
+        pos = {str(n): (100 * G.nodes[n]['pos'][0], 100 * G.nodes[n]['pos'][1]) for n in G.nodes}
+        nx.set_node_attributes(G, pos, "pos")
+
+        # Cloud node (closest to 100,100), router node is always node 0
+        cloud_node = select_cloud_node(pos)
+        roles = {
+            "0": "router",
+            cloud_node: "cloud"
+        }
+
+        topology = {
+            "graph_id": f"rgg_N{N}_{i+1}",
+            "nodes": list(G.nodes),
+            "edges": list(G.edges),
+            "positions": pos,
+            "roles": roles,
+            "seed": seed
+        }
+
+        filename = f"rgg_N{N}_{i+1}.json"
+        filepath = os.path.join(output_dir, filename)
+        with open(filepath, "w") as f:
+            json.dump(topology, f, indent=2)
+
+print(f"✅ Saved locked RGG topologies in {output_dir}")
