@@ -27,28 +27,34 @@ The system is designed for research workflows, producing evaluation CSVs ready f
 
 ## 📦 Installation
 
-###Clone the repository
+### Clone the repository
 ```bash
 git clone https://github.com/Huzzzaif/INC_GYM_RL.git
 cd INC_GYM_RL
 
 ### Create Virtual Env
+```bash
 python3 -m venv incvenv
 source incvenv/bin/activate  # Mac/Linux
 incvenv\Scripts\activate     # Windows
 
 ### Install Requirements
+```bash
 pip install -r requirements.txt
 
 ###Train DRIFT-RL
+```bash
 python inc_env.py train --epochs 800 --out drift_final.zip
 
 ###Evaluate a trained DRIFT-RL model
+```bash
 python inc_env.py eval --model drift_final.zip --out rl_results.csv
 
 ###Run only baselines
+```bash
 python inc_env.py baselines --out baseline_results.csv
 
 ###Run both DRIFT-RL and baselines, merge results
+```bash
 python inc_env.py all --model drift_final.zip --out all_results.csv
 
