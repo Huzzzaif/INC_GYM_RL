@@ -22,31 +22,12 @@ The system is designed for research workflows, producing evaluation CSVs ready f
   - Outputs results to CSV and JSON for analysis
 - **Checkpointing** every 100 epochs
 
----
-
-## 📂 Repository Structure
-INC_GYM_RL/
-├── src/ # Core environment and baseline implementations
-│ ├── inc_env.py # DRIFT-RL environment
-│ ├── BaselineModels.py # EEHE, LEACH-C-HE, Q-Routing policies
-│ ├── inc_node_features.py
-│ ├── graph.py
-│ └── viztop.py
-├── scripts/ # Entry-point scripts
-│ ├── train_inc_agent.py
-│ ├── test_inc_agent.py
-│ └── run_manual.py
-├── LICENSE
-├── requirements.txt
-└── README.md
-
-
 
 ---
 
 ## 📦 Installation
 
-### 1️⃣ Clone the repository
+###Clone the repository
 ```bash
 git clone https://github.com/Huzzzaif/INC_GYM_RL.git
 cd INC_GYM_RL
