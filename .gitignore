@@ -7,6 +7,8 @@ runs/
 
 # Model weights/checkpoints
 models/
+network_sim/
+results/
 *.zip
 
 # Large result files
