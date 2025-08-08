@@ -31,8 +31,8 @@ The system is designed for research workflows, producing evaluation CSVs ready f
 ```bash
 git clone https://github.com/Huzzzaif/INC_GYM_RL.git
 cd INC_GYM_RL
-
-### Create Virtual Env
+'''
+### Clone the repository
 ```bash
 python3 -m venv incvenv
 source incvenv/bin/activate  # Mac/Linux
@@ -57,4 +57,5 @@ python inc_env.py baselines --out baseline_results.csv
 ###Run both DRIFT-RL and baselines, merge results
 ```bash
 python inc_env.py all --model drift_final.zip --out all_results.csv
+
 
